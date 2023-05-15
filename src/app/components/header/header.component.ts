@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
       {
         name: 'ANGULAR',
         action: 'get_angular_team'
-      },
+      }/* ,
       {
         name: 'REACT',
         action: 'get_react_team'
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
       {
         name: 'GENERAL',
         action: 'get_general_team'
-      }
+      } */
     ]
   }
 
