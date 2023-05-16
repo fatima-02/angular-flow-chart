@@ -1,4 +1,7 @@
-<ngx-graph #myChart class="chart-container" *ngIf="showRender" [view]="dimensions" [links]="dataLink" [nodes]="dataNode" [curve]="curve" [layoutSettings]="layoutSettings" layout="dagreCluster">
+<ngx-graph #myChart class="chart-container"
+*ngIf="showRender" [view]="dimensions" [links]="dataLink"
+[nodes]="dataNode" [curve]="curve" [layoutSettings]="layoutSettings"
+ layout="dagreCluster">
 
     <!-- #1 Esto es la punta de la flecha! 🔴-->
     <ng-template #defsTemplate>
@@ -23,9 +26,15 @@
         <svg:g class="edge">
             <svg:path class="line" stroke-width="4" marker-end="url(#arrow)"></svg:path>
             <svg:text class="edge-label" text-anchor="middle">
-
+              <textPath
+              class="text-path"
+              [attr.href]="'#' + link.id"
+              [style.dominant-baseline]="link.dominantBaseline"
+              startOffset="50%"
+            >
+              {{link.label}}
+            </textPath>
             </svg:text>
         </svg:g>
     </ng-template>
-
 </ngx-graph>

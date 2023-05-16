@@ -82,22 +82,22 @@ export class FlowChartService {
             id: 'a',
             source: 'first',
             target: 'c1',
-            label: 'is parent of'
+            label: 'is parent'
           }, {
             id: 'b',
             source: 'c1',
             target: 'c3',
-            label: 'custom label'
+            label: 'Si'
           }, {
             id: 'd',
             source: 'c1',
             target: 'c2',
-            label: 'custom label'
+            label: 'No'
           }, {
             id: 'e',
             source: 'c2',
             target: 'c3',
-            label: 'first link'
+            label: 'Si'
           }
         ]
       }

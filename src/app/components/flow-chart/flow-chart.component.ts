@@ -24,6 +24,9 @@ export class FlowChartComponent implements OnInit {
   };
   public layout: Layout = new DagreNodesOnlyLayout();
 
+  //nuevo
+  public results: any;
+
   constructor(private flowChartService: FlowChartService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -47,7 +50,10 @@ export class FlowChartComponent implements OnInit {
       if (data) {
         this.dataNode = [...this.dataNode, ...data.nodes]
         this.dataLink = [...this.dataLink, ...data.links]
-        console.log('data childs', data)
+        console.log('data childs', data.links[0].label)
+        this.results = data.links[0].label;
+       /*  this.results = data; */
+
       }
     })
 
