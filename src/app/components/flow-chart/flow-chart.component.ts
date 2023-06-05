@@ -57,13 +57,13 @@ export class FlowChartComponent implements OnInit {
       }
     })
 
-    this.flowChartService.dataYoutubers$.subscribe(data => {
+    this.flowChartService.dataEnd$.subscribe(data => {
       console.log('....', data);
 
       if (data) {
         this.dataNode = [...this.dataNode, ...data.nodes]
         this.dataLink = [...this.dataLink, ...data.links]
-        console.log('data youtubers', data)
+        console.log('data ', data)
       }
     })
 

@@ -1,17 +1,33 @@
 <div class="wrapper-node animate__animated animate__bounceIn">
-    <div class="node-template">
-        <!-- <div class="node-template-header">
+  <div class="node-template">
+    <!-- <div class="node-template-header">
             {{dataIn?.data?.title}} ({{dataIn?.label}})
         </div> -->
-        <div class="node-template-body">
-            <div *ngIf="dataIn?.data?.img">
-                <img [src]="dataIn?.data?.img" width="100px" height="100px" alt="">
-            </div>
-            <div [innerHTML]="dataIn?.data?.text"></div>
-            <div *ngIf="dataIn?.action" class="node-button">
-                <button (click)="callChilds(dataIn?.action?.src, dataIn?.action?.key)">VER RUTA ({{dataIn?.label}})<i
-                        class="uil uil-angle-right-b"></i></button>
-            </div>
-        </div>
+    <div class="node-template-body">
+      <label for="opciones">Seleccione validación:</label>
+      <div [innerHTML]="dataIn?.data?.text"></div>
+      <br>
+      <select class="form-control" id="opciones" name="opciones" (change)="onSelectChange($event)">
+        <option value="opcion1">Si</option>
+        <option value="opcion2">No</option>
+      </select>
+      <div *ngIf="selectedOption === 'opcion1'" class="node-button">
+        <button (click)="callChilds(dataIn?.action?.src, dataIn?.action?.key)">Continuar</button>
+      </div>
+      <div *ngIf="selectedOption === 'opcion2'" class="node-button">
+        <button (click)="end(dataIn?.action?.src, dataIn?.action?.key)">Finalizar</button>
+      </div>
+      <br>
+      <!-- <div *ngIf="dataIn?.action" class="node-button">
+        <button (click)="callChilds(dataIn?.action?.src, dataIn?.action?.key)">Continuar({{dataIn?.label}})<i
+            class="uil uil-angle-right-b"></i></button>
+      </div> -->
+
+     <!--  <div *ngIf="dataIn?.data?.img">
+        <img [src]="dataIn?.data?.img" width="100px" height="100px" alt="">
+      </div>
+      <div [innerHTML]="dataIn?.data?.text"></div> -->
+
     </div>
+  </div>
 </div>

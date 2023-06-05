@@ -8,7 +8,7 @@ export class FlowChartService {
   public zoneDimensions$: BehaviorSubject<[number, number]> = new BehaviorSubject([0, 0])
   public data$: BehaviorSubject<any> = new BehaviorSubject(null)
   public dataChild$: BehaviorSubject<any> = new BehaviorSubject(null)
-  public dataYoutubers$: BehaviorSubject<any> = new BehaviorSubject(null)
+  public dataEnd$: BehaviorSubject<any> = new BehaviorSubject(null)
   constructor() { }
 
   calculateDimensions(el: HTMLElement): void {
@@ -25,10 +25,10 @@ export class FlowChartService {
         data: {
           title: 'Angular 🎁',
           img: 'https://i.imgur.com/Rb27aIA.png',
-          text: '<b>_LEIFER MENDEZ_</b> <br>Aprenderemos programación de la manera más dinamica y divertida posible, con ejercicios interesantes'
+          text: '<b>Validacion</b>'
         },
         action: {
-          more: 'Ver ruta',
+          more: 'Continuar',
           src: 'angular',
           key: 'childs'
         }
@@ -44,60 +44,26 @@ export class FlowChartService {
         nodes: [
 
           {
-            id: 'c1',
-            label: 'C1',
+            id: '1',
+            label: '1',
             data: {
               title: 'Go ANGULAR!',
               img: 'https://i.imgur.com/Ajzts77.png',
-              text: '<b>Angular</b> es un framework opensource desarrollado por Google para facilitar la creación y programación de aplicaciones web de una sola página, las webs SPA (Single Page Application).'
-            }
-          },
-          {
-            id: 'c2',
-            label: 'C2',
-            data: {
-              title: 'TS 🤘',
-              img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png',
-              text: 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web.'
+              text: '<b>Angular</b> Validacion2.'
             },
             action: {
               more: 'Ver ruta',
               src: 'ts',
-              key: 'youtubers'
-            }
-          },
-          {
-            id: 'c3',
-            label: 'C3',
-            data: {
-              title: 'Alan 🤘',
-              img: 'https://cdn.iconscout.com/icon/free/png-256/javascript-2752148-2284965.png',
-              text: 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web.'
+              key: 'Final'
             }
           }
         ],
         links: [
-
           {
             id: 'a',
             source: 'first',
-            target: 'c1',
+            target: '1',
             label: 'is parent'
-          }, {
-            id: 'b',
-            source: 'c1',
-            target: 'c3',
-            label: 'Si'
-          }, {
-            id: 'd',
-            source: 'c1',
-            target: 'c2',
-            label: 'No'
-          }, {
-            id: 'e',
-            source: 'c2',
-            target: 'c3',
-            label: 'Si'
           }
         ]
       }
@@ -105,36 +71,23 @@ export class FlowChartService {
     this.dataChild$.next(httpMock[source])
   }
 
-  setDataYoutubers(source: string): void {
+  setDataEnd(source: string): void {
     //TODO: Aqui podemos hacer un llamado a API HTTP!
     const httpMock: any = {
       angular: {
         nodes: [
           {
-            id: 'c1',
-            label: 'C1',
+            id: '2',
+            label: '2',
             data: {
               title: 'Go ANGULAR!',
               img: 'https://i.imgur.com/Ajzts77.png',
-              text: '<b>Angular</b> es un framework opensource desarrollado por Google para facilitar la creación y programación de aplicaciones web de una sola página, las webs SPA (Single Page Application).'
-            }
-          },
-          {
-            id: 'c2',
-            label: 'C2',
-            data: {
-              title: 'TS 🤘',
-              img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png',
-              text: 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web.'
-            }
-          },
-          {
-            id: 'c3',
-            label: 'C3',
-            data: {
-              title: 'Alan 🤘',
-              img: 'https://cdn.iconscout.com/icon/free/png-256/javascript-2752148-2284965.png',
-              text: 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web.'
+              text: '<b>Angular</b> <b>Angular</b> Validacion5'
+            },
+            action: {
+              more: 'Ver ruta',
+              src: 'ts',
+              key: 'Final2'
             }
           }
         ],
@@ -142,64 +95,78 @@ export class FlowChartService {
           {
             id: 'a',
             source: 'first',
-            target: 'c1',
-            label: 'is parent of'
-          }, {
-            id: 'b',
-            source: 'c1',
-            target: 'c3',
-            label: 'custom label'
-          }, {
-            id: 'd',
-            source: 'c1',
-            target: 'c2',
-            label: 'custom label'
-          }, {
-            id: 'e',
-            source: 'c2',
-            target: 'c3',
-            label: 'first link'
-          }
-        ]
-      },
-      ts: {
-        nodes: [
-          {
-            id: 'ts1',
-            label: 'TS1',
-            data: {
-              title: 'Go ANGULAR!',
-              img: 'https://alan-buscaglia-portfolio.netlify.app/static/media/who_am_i_2.2b08c9ab.jpg',
-              text: '<b>Angular</b> es un framework opensource desarrollado por Google para facilitar la creación y programación de aplicaciones web de una sola página, las webs SPA (Single Page Application).'
-            }
-          },
-          {
-            id: 'ts2',
-            label: 'TS2',
-            data: {
-              title: 'Go ANGULAR!',
-              img: 'https://avatars.githubusercontent.com/u/7414771?v=4',
-              text: '<b>Angular</b> es un framework opensource desarrollado por Google para facilitar la creación y programación de aplicaciones web de una sola página, las webs SPA (Single Page Application).'
-            }
-          }
-        ],
-        links: [
-          {
-            id: 't1',
-            source: 'c2',
-            target: 'ts1',
-            label: 'is parent of'
-          },
-          {
-            id: 't2',
-            source: 'c2',
-            target: 'ts2',
+            target: '2',
             label: 'is parent of'
           }
         ]
       }
     }
-    this.dataYoutubers$.next(httpMock[source])
+    this.dataEnd$.next(httpMock[source])
   }
 
+  setDataEnd3(source: string): void {
+    //TODO: Aqui podemos hacer un llamado a API HTTP!
+    const httpMock: any = {
+      angular: {
+        nodes: [
+          {
+            id: '3',
+            label: '3',
+            data: {
+              title: 'Go ANGULAR!',
+              img: 'https://i.imgur.com/Ajzts77.png',
+              text: '<b>Angular</b> <b>Angular</b> Validacion5'
+            },
+            action: {
+              more: 'Ver ruta',
+              src: 'ts',
+              key: 'Final3'
+            }
+          }
+        ],
+        links: [
+          {
+            id: 'a',
+            source: 'first',
+            target: '3',
+            label: 'is parent of'
+          }
+        ]
+      }
+    }
+    this.dataEnd$.next(httpMock[source])
+  }
+
+  setDataFinalize(source: string): void {
+    //TODO: Aqui podemos hacer un llamado a API HTTP!
+    const httpMock: any = {
+      angular: {
+        nodes: [
+          {
+            id: '3',
+            label: '3',
+            data: {
+              title: 'Go ANGULAR!',
+              img: 'https://i.imgur.com/Ajzts77.png',
+              text: '<b>Angular</b> <b>Angular</b> Validacion FINAL'
+            },
+            action: {
+              more: 'Ver ruta',
+              src: 'ts',
+              key: 'Final4'
+            }
+          },
+        ],
+        links: [
+          {
+            id: '3',
+            source: 'first',
+            target: '3',
+            label: 'is parent of'
+          }
+        ]
+      }
+    }
+    this.dataEnd$.next(httpMock[source])
+  }
 }

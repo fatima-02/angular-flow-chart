@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FlowChartComponent } from './components/flow-chart/flow-chart.component';
 import { FlowCardNodeComponent } from './components/flow-card-node/flow-card-node.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
